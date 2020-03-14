@@ -1,0 +1,148 @@
+.navbar{
+    display: flex;
+}
+.nav-logo{
+    display: flex;
+    flex:1;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.nav-menu-container{
+    display: flex;
+    flex:3;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: center;
+}
+.nav-menu{
+    display: flex;
+    flex:3;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: center;
+}
+.menu{
+    display: flex;
+    flex:1;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.menu-items{
+}
+img{
+    margin-top: 10px;
+    width: 100px;
+    height: 100px;
+}
+input[type="checkbox"]{
+    width: 40px;
+    height: 40px;
+    visibility: hidden;
+}
+
+@media all and (max-width:768px){
+    input[type="checkbox"]{
+        position: absolute;
+        top: 50px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        visibility: visible;
+        z-index: 1;
+        opacity: 0;
+
+    }
+    .navbar{
+        flex-direction: column;
+    }
+
+    .nav-menu{
+        display: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        flex-direction: column;
+        visibility: hidden;
+    }
+    input[type="checkbox"]:checked ~ .nav-menu {
+        visibility: visible;
+        display: flex;
+        opacity: 0.75;
+        position: absolute;
+        background-color: cadetblue;
+        -webkit-animation: scale-up-ver-top 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-ver-top 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
+    }
+    input[type="checkbox"] ~ .nav-menu {
+        visibility: hidden;
+        display: none;
+        position: relative;
+    }
+    .nav-menu-container{
+        flex-direction: column;
+    }
+   .nav-menu-container > span{
+    position: absolute;
+    top:-45px;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    
+    background: #cdcdcd;
+    border-radius: 3px;
+    
+    transform-origin: 4px 0px;
+    
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+}
+.nav-menu-container > span
+{
+  transform-origin: 0% 0%;
+}
+
+.nav-menu-container > span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+ input[type="checkbox"]:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-4px, -4px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+ input[type="checkbox"]:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+ input[type="checkbox"]:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -2px);
+}
+
+}
+
+
+
+  
