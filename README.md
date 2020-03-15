@@ -1,2 +1,4 @@
 # flexbox-nav
-My flexbox navbar with a test of media query 🤩
+
+I created this flexbox-nav for learning more about media query and flexbox. 
+I implemented the hamburger button pure css. 🤯
